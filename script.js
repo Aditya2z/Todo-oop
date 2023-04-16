@@ -228,6 +228,7 @@ class Todo {
         input.addEventListener("click", this.handleCheck.bind(this));
         let p = document.createElement("p");
         p.innerText = this.text;
+        if(this.isDone) p.style.opacity = ".75";
         let span = document.createElement("span");
         span.classList.add("closeBtn");
         span.innerText = "X";
@@ -241,6 +242,15 @@ myTodo.add('play');
 myTodo.add("no");
 
 let inputValue = document.querySelector("input[type=text]");
+let active = document.querySelector(".active-btn");
+let completed = document.querySelector(".completed-btn");
+let all = document.querySelector(".all-btn");
+let clear = document.querySelector(".clear-btn");
+let selectAll = document.querySelector(".selectAll");
+
+let enterBtn = document.querySelector(".enterBtn");
+
+// addEventListeners
 inputValue.addEventListener("keyup", (event) => {
     if(event.keyCode === 13) {
         myTodo.add(event.target.value);
